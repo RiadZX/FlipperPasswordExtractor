@@ -1,6 +1,3 @@
-//Chrome Password Recovery project main.go
-//Recover Websites, Username and Passwords from Google Chromes Login Data file.
-
 //Windows Only
 
 //SQLLite3 - github.com/mattn/go-sqlite3
@@ -36,7 +33,6 @@ var (
 
 	dataPath       string = os.Getenv("USERPROFILE") + "\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Login Data"
 	localStatePath string = os.Getenv("USERPROFILE") + "\\AppData\\Local\\Google\\Chrome\\User Data\\Local State"
-	masterKey      []byte
 )
 
 type DataBlob struct {
