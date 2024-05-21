@@ -229,13 +229,10 @@ func main() {
 				log.Fatal(err)
 			}
 
-			if URL != "" && URL != "" && string(pass) != "" {
+			if URL != "" && string(pass) != "" {
 				fmt.Println(URL, USERNAME, string(pass))
 			}
 		}
-
-		//Check if no value, if none skip
-
 	}
 	err = rows.Err()
 	if err != nil {
