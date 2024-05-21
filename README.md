@@ -10,3 +10,6 @@ flipperzero javascript script downloads the binary and runs it, and sends to the
 - add your webhook url to the .js file
 - add chrome/edge javascript to your flipper
 
+## optimizing build size
+add these flags when building
+```-ldflags="-w -s" -gcflags=all=-l```
