@@ -1,5 +1,5 @@
 # FlipperPasswordExtractor
-Extract saved browser passwords to a Discord webhook or save them locally on the Flipper Zero.<br/>
+Extract saved browser passwords to a webhook or save them locally on the Flipper Zero.<br/>
 Currently supports:
 - Chrome Browser
 - Edge Browser
